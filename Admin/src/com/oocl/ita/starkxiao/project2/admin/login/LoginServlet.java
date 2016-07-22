@@ -6,17 +6,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oocl.ita.starkxiao.project2.admin.util.AuditPwdUtil;
+
 /**
- * Servlet implementation class Index
+ * Servlet implementation class LoginServlet
  */
-public class IndexServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private AuditPwdUtil auditPwdUtil;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexServlet() {
-//        super();
+    public LoginServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -24,15 +27,27 @@ public class IndexServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/view/index.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("view/login.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		auditPwdUtil = new AuditPwdUtil();
+		String pwd = request.getParameter("password");
+		if(auditPwdUtil.checkPass(pwd)){
+			response.getWriter().write("Redirect to the index, please wait.");
+			request.getSession().setAttribute("pass", true);
+//			response.setHeader("redirect", "2;");//version 2
+			response.sendRedirect("Index");
+		}else{
+			response.getWriter().write("Incorrect password!!");
+			//Reload the page
+			response.setHeader("refresh", "2");
+		}
+		
 	}
 
 }

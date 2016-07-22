@@ -4,7 +4,7 @@
 
 <h1>Merchant Manage</h1>
 
-<form action="." method="post">
+<form method="post">
 	<!-- 
 	<div class="form-group">
 		<label for="username">User</label>
