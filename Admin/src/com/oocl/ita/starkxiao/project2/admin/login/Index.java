@@ -1,4 +1,4 @@
-package com.oocl.ita.stark_xiao.project2.admin.login;
+package com.oocl.ita.starkxiao.project2.admin.login;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ public class Index extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public Index() {
-        super();
+//        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -24,9 +24,8 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		request.getRequestDispatcher("view/index.jsp").forward(request, response);
+		System.out.println(123);
+		request.getRequestDispatcher("/view/index.jsp").forward(request, response);
 	}
 
 	/**
