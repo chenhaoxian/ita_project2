@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Index
+ * Servlet implementation class Register
  */
-public class Index extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Index() {
-//        super();
+    public RegisterServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -24,7 +24,8 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/view/index.jsp").forward(request, response);
+		//TO-DO: add sometips here?
+		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}
 
 	/**

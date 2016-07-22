@@ -13,7 +13,7 @@
     <description></description>
     <display-name>Index</display-name>
     <servlet-name>Index</servlet-name>
-    <servlet-class>com.oocl.ita.starkxiao.project2.admin.login.Index</servlet-class>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.login.IndexServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Index</servlet-name>
@@ -23,7 +23,7 @@
     <description></description>
     <display-name>Register</display-name>
     <servlet-name>Register</servlet-name>
-    <servlet-class>com.oocl.ita.starkxiao.project2.admin.login.Register</servlet-class>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.login.RegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
