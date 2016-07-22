@@ -13,6 +13,11 @@ public class Food {
 		this.mId = mId;
 		this.fPrice = fPrice;
 		this.fViewPath = fViewPath;
+	}	public Food( String fName, double fPrice, String fViewPath) {
+		super();
+		this.fName = fName;
+		this.fPrice = fPrice;
+		this.fViewPath = fViewPath;
 	}
 	public int getfId() {
 		return fId;
