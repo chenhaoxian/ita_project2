@@ -8,3 +8,6 @@
 	sharedrepository = 2
 [receive]
 	denyNonFastforwards = true
+[remote "origin"]
+	url = https://github.com/chenhaoxian/ita_project2.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
