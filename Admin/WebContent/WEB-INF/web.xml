@@ -67,4 +67,14 @@
     <filter-name>CharsetFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuditServlet</display-name>
+    <servlet-name>AuditServlet</servlet-name>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.content.AuditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuditServlet</servlet-name>
+    <url-pattern>/Content/Audit</url-pattern>
+  </servlet-mapping>
 </web-app>
