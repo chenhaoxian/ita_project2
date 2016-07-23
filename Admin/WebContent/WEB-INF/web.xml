@@ -13,7 +13,7 @@
     <description></description>
     <display-name>Index</display-name>
     <servlet-name>Index</servlet-name>
-    <servlet-class>com.oocl.ita.starkxiao.project2.admin.login.IndexServlet</servlet-class>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.content.IndexServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Index</servlet-name>

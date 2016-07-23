@@ -2,7 +2,7 @@ package com.oocl.ita.starkxiao.project2.admin.service;
 
 import java.util.List;
 
-import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
+import com.oocl.ita.starkxiao.project2.admin.content.Merchant;
 
 public interface AdminService {
 	public List<Merchant> listAllMerchant();
