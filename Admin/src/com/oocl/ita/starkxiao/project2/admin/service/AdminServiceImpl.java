@@ -8,6 +8,7 @@ import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
 
 public class AdminServiceImpl implements AdminService {
 	private MerchantDao merchantDao;
+	private int mId;
 	
 	public AdminServiceImpl() {
 		this.merchantDao = new MerchantDaoImpl();
@@ -21,7 +22,8 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void loadAuditMerchantListJMS() {
-		//load audit merchant from the JMS, then using the xml-parse to transfer to object
+		//use a JMSListener to get a message from JMS, then using the xml-parse to transfer to object
+		//save them into a datatable temporally
 
 	}
 
@@ -29,6 +31,18 @@ public class AdminServiceImpl implements AdminService {
 	public List<Merchant> listAuditMerchant() {
 		//list audit merchant from database
 		return null;
+	}
+
+	@Override
+	public void passMerchant(int mId) {
+		//let the merchant pass the audition
+		
+	}
+
+	@Override
+	public void merchantBlockToggle(int mId) {
+		//toggle the merchant to the blacklist or white-list
+		
 	}
 
 }
