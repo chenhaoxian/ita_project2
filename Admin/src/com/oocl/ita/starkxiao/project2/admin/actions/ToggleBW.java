@@ -1,4 +1,4 @@
-package com.oocl.ita.starkxiao.project2.admin.content;
+package com.oocl.ita.starkxiao.project2.admin.actions;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -31,7 +31,7 @@ public class ToggleBW extends HttpServlet {
 			int target = Integer.parseInt(request.getParameter("id"));
 			adminService.merchantBlockToggle(target);
 		}
-		response.sendRedirect("/Content/Index");
+		response.sendRedirect(request.getContextPath()+"/Content/Index");
 	}
 
 }
