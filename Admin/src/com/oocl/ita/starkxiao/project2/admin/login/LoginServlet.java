@@ -40,7 +40,8 @@ public class LoginServlet extends HttpServlet {
 			response.getWriter().write("Redirect to the index, please wait.");
 			request.getSession().setAttribute("pass", true);
 //			response.setHeader("redirect", "2;");//version 2
-			response.sendRedirect("Index");
+			
+			response.sendRedirect("Content/Index");
 		}else{
 			response.getWriter().write("Incorrect password!!");
 			//Reload the page
