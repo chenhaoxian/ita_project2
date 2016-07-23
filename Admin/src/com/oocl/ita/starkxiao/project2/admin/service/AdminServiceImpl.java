@@ -34,7 +34,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void passMerchant(int mId) {
+	public void confirmMerchant(int mId) {
 		//let the merchant pass the audition
 		
 	}
