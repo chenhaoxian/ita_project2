@@ -36,15 +36,17 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		auditPwdUtil = new AuditPwdUtil();
 		String pwd = request.getParameter("password");
+		
+		
+		//if not be rejected, the page would redirect to the index of manager
 		if(auditPwdUtil.checkPass(pwd)){
 			response.getWriter().write("Redirect to the index, please wait.");
 			request.getSession().setAttribute("pass", true);
-//			response.setHeader("redirect", "2;");//version 2
-			
 			response.sendRedirect("Content/Index");
 		}else{
 			response.getWriter().write("Incorrect password!!");
-			//Reload the page
+			//if the request is not permitted, the page would display a tips
+			//then reload the page
 			response.setHeader("refresh", "2");
 		}
 		

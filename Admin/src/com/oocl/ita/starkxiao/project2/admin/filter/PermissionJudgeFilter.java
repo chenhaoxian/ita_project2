@@ -36,11 +36,12 @@ public class PermissionJudgeFilter implements Filter {
 		HttpServletResponse httpServletResponse = (HttpServletResponse)response;
 		Boolean boolTemp = (Boolean)httpServletRequest.getSession().getAttribute("pass");
 		
+		//if the request have a permission to reach the page, let it pass
 		if(boolTemp != null && boolTemp){
 			chain.doFilter(httpServletRequest, response);
 		}
 		else{
-			String requestOriginPath = request.getServletContext().getContextPath();
+			String requestOriginPath = httpServletRequest.getContextPath();
 			httpServletResponse.sendRedirect(requestOriginPath+"/Login");
 		}
 	}
