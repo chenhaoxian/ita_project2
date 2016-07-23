@@ -30,9 +30,10 @@ public class RejectAudition extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("id") != null){
 			int target = Integer.parseInt(request.getParameter("id"));
+			System.out.println("I'm in RejectSevlet, "+target);
 			adminService.rejectMerchant(target);
 		}
-		response.sendRedirect(request.getContextPath()+"/Content/Index");
+		response.sendRedirect(request.getContextPath()+"/Content/Audit");
 	}
 
 }

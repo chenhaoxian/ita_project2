@@ -32,8 +32,14 @@
 		<td>${each.mBrand}</td>
 		<td>${each.mLogoPath}</td>
 		<td>
-			<c:if test="${each.bwStatus==1}"><a href="#" class="btn btn-primary">block</a></c:if>
-			<c:if test="${each.bwStatus==0}"><a href="#" class="btn btn-primary">recover</a></c:if>
+			<a href="<%=request.getContextPath()%>/Action/ToggleBW?id=${each.mId}" class="btn btn-primary">
+				<c:if test="${each.bwStatus==1}">
+					Block
+				</c:if>
+				<c:if test="${each.bwStatus==0}">
+					Recover
+				</c:if>
+			</a>
 		</td>
 	</tr>
 </c:forEach>
