@@ -1,5 +1,8 @@
 package po;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement  
 public class Merchant {
 	int mId; //Auto
 	String mPersonName;
@@ -10,6 +13,7 @@ public class Merchant {
 	String mBrand;
 	String mLogoPath;
 	String mPassword;
+	public Merchant(){}
 	public Merchant(int mId, String mPersonName, String mTel, String mIdCard, String mCarfPath, String mLocation,
 			String mBrand, String mLogoPath, String mPassword) {
 		super();
