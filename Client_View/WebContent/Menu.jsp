@@ -10,6 +10,8 @@
 </head>
 <body>
 	<h1>Advertisement field</h1>
+	
+			<td><a href="showMerchant">Back to Merchant</a></td>
 <table>
 
 		<c:forEach var="food" items="${foods}">
