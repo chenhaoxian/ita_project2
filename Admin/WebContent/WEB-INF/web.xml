@@ -87,4 +87,24 @@
     <servlet-name>ToggleBW</servlet-name>
     <url-pattern>/Action/ToggleBW</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RejectAudition</display-name>
+    <servlet-name>RejectAudition</servlet-name>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.actions.RejectAudition</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RejectAudition</servlet-name>
+    <url-pattern>/Action/RejectAudition</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfirmAudition</display-name>
+    <servlet-name>ConfirmAudition</servlet-name>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.actions.ConfirmAudition</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmAudition</servlet-name>
+    <url-pattern>/Action/ConfirmAudition</url-pattern>
+  </servlet-mapping>
 </web-app>
