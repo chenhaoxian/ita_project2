@@ -77,4 +77,14 @@
     <servlet-name>AuditServlet</servlet-name>
     <url-pattern>/Content/Audit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ToggleBW</display-name>
+    <servlet-name>ToggleBW</servlet-name>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.content.ToggleBW</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ToggleBW</servlet-name>
+    <url-pattern>/Content/ToggleBW</url-pattern>
+  </servlet-mapping>
 </web-app>
