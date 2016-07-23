@@ -1,4 +1,4 @@
-package com.oocl.ita.starkxiao.project2.admin.login;
+package com.oocl.ita.starkxiao.project2.admin.content;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oocl.ita.starkxiao.project2.admin.content.Merchant;
+import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
 import com.oocl.ita.starkxiao.project2.admin.service.AdminService;
 import com.oocl.ita.starkxiao.project2.admin.service.AdminServiceImpl;
 

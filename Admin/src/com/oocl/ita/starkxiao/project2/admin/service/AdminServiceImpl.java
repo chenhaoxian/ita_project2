@@ -2,9 +2,9 @@ package com.oocl.ita.starkxiao.project2.admin.service;
 
 import java.util.List;
 
-import com.oocl.ita.starkxiao.project2.admin.content.Merchant;
 import com.oocl.ita.starkxiao.project2.admin.dao.access.MerchantDao;
 import com.oocl.ita.starkxiao.project2.admin.dao.access.MerchantDaoImpl;
+import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
 
 public class AdminServiceImpl implements AdminService {
 	private MerchantDao merchantDao;

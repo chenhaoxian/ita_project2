@@ -1,4 +1,4 @@
-package com.oocl.ita.starkxiao.project2.admin.content;
+package com.oocl.ita.starkxiao.project2.admin.dao.po;
 
 public class Merchant {
 	private int mId;
