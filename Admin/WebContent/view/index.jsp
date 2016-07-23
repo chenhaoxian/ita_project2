@@ -4,6 +4,7 @@
 
 <h1>Merchant Manage</h1>
 <a href="<%=request.getContextPath() %>/Logout" class="btn btn-primary">sign out</a>
+<a href="<%=request.getContextPath() %>/Content/Audit" class="btn btn-primary">Audit</a>
 
 <p>need a navbar, it could navigate to the auditController</p>
 <p>it is a list here, including a function to block the merchant</p>
@@ -18,6 +19,7 @@
 		<th>Location</th>
 		<th>Merchant Name</th>
 		<th>Logo Preview</th>
+		<th>Options</th>
 	</tr>
 <c:forEach var="each" items="${merchants}">
 	<tr>
@@ -29,6 +31,10 @@
 		<td>${each.mLocation}</td>
 		<td>${each.mBrand}</td>
 		<td>${each.mLogoPath}</td>
+		<td>
+			<c:if test="${each.bwStatus==1}"><a href="#" class="btn btn-primary">block</a></c:if>
+			<c:if test="${each.bwStatus==0}"><a href="#" class="btn btn-primary">recover</a></c:if>
+		</td>
 	</tr>
 </c:forEach>
 </table>
