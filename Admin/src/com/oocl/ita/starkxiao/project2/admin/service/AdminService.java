@@ -9,5 +9,6 @@ public interface AdminService {
 	public void loadAuditMerchantListJMS();
 	public List<Merchant> listAuditMerchant();
 	public void passMerchant(int mId);
+	public void rejectMerchant(int mId);
 	public void merchantBlockToggle(int mId);
 }

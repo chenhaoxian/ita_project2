@@ -45,4 +45,10 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public void rejectMerchant(int mId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
