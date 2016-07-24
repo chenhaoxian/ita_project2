@@ -8,7 +8,6 @@ import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
 
 public class AdminServiceImpl implements AdminService {
 	private MerchantDao merchantDao;
-	private int mId;
 	
 	public AdminServiceImpl() {
 		this.merchantDao = new MerchantDaoImpl();
@@ -16,8 +15,7 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	public List<Merchant> listAllMerchant() {
-		// TODO Auto-generated method stub
-		return null;
+		return merchantDao.select();
 	}
 
 	@Override
@@ -29,26 +27,25 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Merchant> listAuditMerchant() {
-		//list audit merchant from database
-		return null;
+		return merchantDao.select();
 	}
 
 	@Override
-	public void confirmMerchant(int mId) {
+	public void confirmMerchant(String mTel) {
 		//let the merchant pass the audition
-		
+		merchantDao.updateStatus(mTel, 2);
 	}
 
 	@Override
-	public void merchantBlockToggle(int mId) {
+	public void merchantBlockToggle(String mTel) {
 		//toggle the merchant to the blacklist or white-list
-		
+		merchantDao.updateStatus(mTel, 4);
 	}
 
 	@Override
-	public void rejectMerchant(int mId) {
+	public void rejectMerchant(String mTel) {
 		// TODO Auto-generated method stub
-		
+		merchantDao.updateStatus(mTel, 3);
 	}
 
 }

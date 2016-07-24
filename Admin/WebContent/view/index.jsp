@@ -32,11 +32,11 @@
 		<td>${each.mBrand}</td>
 		<td>${each.mLogoPath}</td>
 		<td>
-			<a href="<%=request.getContextPath()%>/Action/ToggleBW?id=${each.mId}" class="btn btn-primary">
-				<c:if test="${each.mStatus==1}">
+			<a href="<%=request.getContextPath()%>/Action/ToggleBW?tel=${each.mId}" class="btn btn-primary">
+				<c:if test="${each.mStatus==2}">
 					Block
 				</c:if>
-				<c:if test="${each.mStatus==0}">
+				<c:if test="${each.mStatus==4}">
 					Recover
 				</c:if>
 			</a>

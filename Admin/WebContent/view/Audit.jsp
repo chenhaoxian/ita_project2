@@ -32,8 +32,8 @@
 		<td>${each.mBrand}</td>
 		<td>${each.mLogoPath}</td>
 		<td>
-			<a href="<%=request.getContextPath()%>/Action/ConfirmAudition?id=${each.mId}" class="btn btn-primary">Confirm</a>
-			<a href="<%=request.getContextPath()%>/Action/RejectAudition?id=${each.mId}" class="btn btn-primary">Reject</a>
+			<a href="<%=request.getContextPath()%>/Action/ConfirmAudition?tel=${each.mTel}" class="btn btn-primary">Confirm</a>
+			<a href="<%=request.getContextPath()%>/Action/RejectAudition?tel=${each.mTel}" class="btn btn-primary">Reject</a>
 		</td>
 	</tr>
 </c:forEach>

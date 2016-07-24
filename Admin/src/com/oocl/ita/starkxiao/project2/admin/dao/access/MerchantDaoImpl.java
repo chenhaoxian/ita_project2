@@ -9,8 +9,6 @@ import java.util.List;
 
 import com.oocl.ita.starkxiao.project2.admin.dao.po.Merchant;
 
-import oracle.net.aso.r;
-
 public class MerchantDaoImpl implements MerchantDao {
 
 	@Override
@@ -26,7 +24,7 @@ public class MerchantDaoImpl implements MerchantDao {
 	}
 
 	@Override
-	public int updateStatus(Merchant m, int status) {
+	public int updateStatus(String tel, int status) {
 		String sql = "update Permission set mStatus=? where mTel=?";
 		Connection conn = DbUtil.connect();
 		PreparedStatement pst = null;
@@ -36,7 +34,7 @@ public class MerchantDaoImpl implements MerchantDao {
 			conn.setAutoCommit(false);
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, status);
-			pst.setString(2, m.getmTel());
+			pst.setString(2, tel);
 			effectResult = pst.executeUpdate();
 			conn.commit();
 		} catch (SQLException e) {
