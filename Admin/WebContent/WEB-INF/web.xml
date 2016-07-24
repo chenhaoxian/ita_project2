@@ -107,4 +107,15 @@
     <servlet-name>ConfirmAudition</servlet-name>
     <url-pattern>/Action/ConfirmAudition</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>/Action/Runner</display-name>
+    <servlet-name>/Action/Runner</servlet-name>
+    <servlet-class>com.oocl.ita.starkxiao.project2.admin.actions.Runner</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>/Action/Runner</servlet-name>
+    <url-pattern>/Action/Runner</url-pattern>
+  </servlet-mapping>
 </web-app>
