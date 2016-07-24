@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+package dao;
+
+public interface Permission {
+	public int updatePermission(Permission permission);
+	
+}
+=======
+package dao;
+
+public interface Permission {
+	public int updatePermission(Permission permission);
+	
+}
+>>>>>>> 9b52d4560c8287dfcd6993ed66788c0a9e395092

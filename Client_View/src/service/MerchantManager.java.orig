@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+package service;
+
+import java.util.List;
+
+import po.Merchant;
+
+public interface MerchantManager {
+	public int addBook(Merchant b);
+	public int deletMerchant(int id);
+	public int  updateMerchan(Merchant merchan);
+	public List<Merchant> findAllMerchant();
+}
+=======
+package service;
+
+import java.util.List;
+
+import po.Merchant;
+
+public interface MerchantManager {
+	public int addBook(Merchant b);
+	public int deletMerchant(int id);
+	public int  updateMerchan(Merchant merchan);
+	public List<Merchant> findAllMerchant();
+}
+>>>>>>> 9b52d4560c8287dfcd6993ed66788c0a9e395092

@@ -14,28 +14,18 @@
 	<h1>Show All Merchant</h1>
 	<h1></h1>
 	<table>
-		<tr>
+	
+<c:forEach var="merchant" items="${merchants}">
+	<tr>
 			<td style="border: solid 1px #a0c6e5; height: 20px;">${merchant.mId}</td>
 			<td style="border: solid 1px #a0c6e5; height: 20px;">${merchant.mTel}</td>
 			<td style="border: solid 1px #a0c6e5; height: 20px;">${merchant.mLocation}</td>
 			<td style="border: solid 1px #a0c6e5; height: 20px;">${merchant.mBrand}</td>
 			<td><%out.write("<img src=\"http://usr.im/200x150\"/>");%>
 			</td>
-			
-			<td><a href="showMenu">Menu</a></td>
-		</tr>
-		<!--
-<c:forEach var="c" items="${cs}">
-		<tr>
-			<td>${c.id }</td><td>${c.cname }</td>
-			<td><fmt:formatNumber value="${c.price }" pattern="$##,###.00"></fmt:formatNumber></td>
-			<td>${c.backGround }</td>
-			<td>${c.count }</td>
-			<td></td>
-			<td><a href="delete?id=${c.id }">delete</a></td>
+			<td><a href="showMenu?id=${merchant.mId }">Menu</a></td>
 		</tr>
 	</c:forEach>
-	-->
 	</table>
 </body>
 </html>
