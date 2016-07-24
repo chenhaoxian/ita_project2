@@ -1,5 +1,8 @@
 package po;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement  
 public class Merchant {
 	int mId; //Auto
 	String mPersonName;
@@ -10,6 +13,7 @@ public class Merchant {
 	String mBrand;
 	String mLogoPath;
 	String mPassword;
+	public Merchant(){}
 	public Merchant(int mId, String mPersonName, String mTel, String mIdCard, String mCarfPath, String mLocation,
 			String mBrand, String mLogoPath, String mPassword) {
 		super();
@@ -22,6 +26,23 @@ public class Merchant {
 		this.mBrand = mBrand;
 		this.mLogoPath = mLogoPath;
 		this.mPassword = mPassword;
+	}	public Merchant( String mPersonName, String mTel, String mIdCard, String mCarfPath, String mLocation,
+			String mBrand, String mLogoPath, String mPassword) {
+		super();
+		this.mPersonName = mPersonName;
+		this.mTel = mTel;
+		this.mIdCard = mIdCard;
+		this.mCarfPath = mCarfPath;
+		this.mLocation = mLocation;
+		this.mBrand = mBrand;
+		this.mLogoPath = mLogoPath;
+		this.mPassword = mPassword;
+	}
+	public Merchant(String mLocation2, String mBrand2, String mLogoPath2) {
+		// TODO Auto-generated constructor stub
+		this.mLocation = mLocation;
+		this.mBrand = mBrand;
+		this.mLogoPath = mLogoPath;
 	}
 	public int getmId() {
 		return mId;
