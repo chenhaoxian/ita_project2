@@ -8,6 +8,7 @@ public interface MerchantDao {
 	public int add(Merchant m);
 	public int delete(int id);
 	public int update(Merchant m);
+	public int updateStatus(Merchant m, int status);
 	public List<Merchant> select();
 	public Merchant select(int id);
 }
