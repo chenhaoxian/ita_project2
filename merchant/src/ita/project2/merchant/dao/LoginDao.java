@@ -6,5 +6,7 @@ public interface LoginDao {
 	
 	int countUser(String mTel,String mPassword);
 	
+	String findPersonName(String mTel);
+	
 
 }

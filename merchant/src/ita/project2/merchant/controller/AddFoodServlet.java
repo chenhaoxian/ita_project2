@@ -15,40 +15,43 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import ita.project2.merchant.model.Food;
 import ita.project2.merchant.model.Merchant;
+import ita.project2.merchant.service.FoodManageService;
+import ita.project2.merchant.service.impl.FoodManageServiceImpl;
 import ita.project2.merchant.util.Parse;
 import ita.project2.merchant.util.SendToJMS;
 
 /**
- * Servlet implementation class AuditServlet
+ * Servlet implementation class AddFoodServlet
  */
-public class AuditServlet extends HttpServlet {
+public class AddFoodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddFoodServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public AuditServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FoodManageService foodManageService = new FoodManageServiceImpl();
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		String pathTemp = this.getServletContext().getRealPath("/temp");
 		String path = this.getServletContext().getRealPath("res/images/upload");
-		// String path = "res/images/upload";
-
 		factory.setSizeThreshold(1024 * 100);
 		factory.setRepository(new File(pathTemp));
 
 		HttpSession session = request.getSession();
 		Merchant merchant = (Merchant) session.getAttribute("merchant");
+		Food food = new Food();
+		int  mId = foodManageService.findMTel(merchant.getmTel());
+		food.setmId(mId);
 
 		try {
 			ServletFileUpload fu = new ServletFileUpload(factory);
@@ -56,22 +59,17 @@ public class AuditServlet extends HttpServlet {
 
 			for (FileItem item : fis) {
 				if (item.isFormField()) {
-
-					if ("mIdCard".equals(item.getFieldName())) {
-						merchant.setmIdCard(item.getString());
-					} else if ("mLocation".equals(item.getFieldName())) {
-						merchant.setmLocation(item.getString());
-					} else if ("mBrand".equals(item.getFieldName())) {
-						merchant.setmBrand(item.getString());
+					if ("fName".equals(item.getFieldName())) {
+						food.setfName(item.getString());
+					} else if ("fPrice".equals(item.getFieldName())) {
+						food.setfPrice(Integer.parseInt(item.getString()));
 					}
 				} else {
 					String fileName = item.getName();
 					System.out.println(path + "\\" + fileName);
 					item.write(new File(path, merchant.getmTel() + item.getFieldName() + fileName));
-					if ("idCardImage".equals(item.getFieldName())) {
+					if ("foodImage".equals(item.getFieldName())) {
 						merchant.setmCardPath((merchant.getmTel() + item.getFieldName() + fileName));
-					} else {
-						merchant.setmLogoPath(merchant.getmTel() + item.getFieldName() + fileName);
 					}
 				}
 			}
@@ -89,7 +87,6 @@ public class AuditServlet extends HttpServlet {
 		SendToJMS.sendMerchant(merchantXML);
 
 		request.getRequestDispatcher("view/wait.jsp").forward(request, response);
-
 	}
 
 }

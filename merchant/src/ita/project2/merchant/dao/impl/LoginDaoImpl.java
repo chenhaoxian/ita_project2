@@ -51,4 +51,26 @@ public class LoginDaoImpl implements LoginDao {
 		return count;
 	}
 
+	@Override
+	public String findPersonName(String mTel) {
+		Connection con = DbUtil.connect();
+		PreparedStatement pst = null;
+		String sql = "select mPersonName from merchant where mTel = ?";
+		ResultSet rs = null;
+		String name = null;
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setString(1, mTel);
+			rs = pst.executeQuery();
+			while(rs.next()){
+				name = rs.getString("mPersonName");
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return name;
+	}
+
 }

@@ -1,11 +1,15 @@
 package ita.project2.merchant.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import ita.project2.merchant.model.Merchant;
 import ita.project2.merchant.service.LoginService;
 import ita.project2.merchant.service.impl.LoginServiceImpl;
 
@@ -37,7 +41,16 @@ public class RegisterServlet extends HttpServlet {
 		int count = registerService.register(mPersonName, mTel, mPassword);
 		
 		if(count ==1 ){
-			System.out.println("success");
+			Merchant merchant = new Merchant();
+			merchant.setmTel(mTel);
+			merchant.setmPersonName(mPersonName);
+			HttpSession session = request.getSession();
+			session.setAttribute("merchant", merchant);
+			request.getRequestDispatcher("/auditPage.jsp").forward(request, response);
+		}else {
+			PrintWriter out = response.getWriter();
+			out.write("<script>alert('fail!')</script>");// window.location.href=""; 
+			out.write("<script>window.location.href='RegisterServlet.jsp'</script>");
 		}
 		
 	}

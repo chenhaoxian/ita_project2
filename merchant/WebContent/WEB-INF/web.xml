@@ -9,6 +9,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <param-name>uploadpath</param-name>
+    <param-value>10.222.232.155:8080/merchant/res/images/upload/</param-value>
+  </context-param>
   <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
@@ -38,5 +42,25 @@
   <servlet-mapping>
     <servlet-name>AuditServlet</servlet-name>
     <url-pattern>/auditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SendToJMSServlet</display-name>
+    <servlet-name>SendToJMSServlet</servlet-name>
+    <servlet-class>ita.project2.merchant.controller.SendToJMSServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendToJMSServlet</servlet-name>
+    <url-pattern>/sendToJMSServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddFoodServlet</display-name>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <servlet-class>ita.project2.merchant.controller.AddFoodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <url-pattern>/addFoodServlet</url-pattern>
   </servlet-mapping>
 </web-app>

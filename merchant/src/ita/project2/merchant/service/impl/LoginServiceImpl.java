@@ -33,4 +33,10 @@ public class LoginServiceImpl implements LoginService {
 		this.loginDao = loginDao;
 	}
 
+	@Override
+	public String getPersonName(String mtel) {
+		
+		return loginDao.findPersonName(mtel);
+	}
+
 }
