@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+package service;
+
+import java.util.List;
+
+import po.Food;
+
+public interface FoodManager {
+	public int addFood(Food food);
+	public int deleteFood(int fId);
+	public int  updateMerchan(Food food);
+	public List<Food> showAllFood(int mid);
+}
+=======
+package service;
+
+import java.util.List;
+
+import po.Food;
+
+public interface FoodManager {
+	public int addFood(Food food);
+	public int deleteFood(int fId);
+	public int  updateMerchan(Food food);
+	public List<Food> showAllFood(int mid);
+}
+>>>>>>> 9b52d4560c8287dfcd6993ed66788c0a9e395092
