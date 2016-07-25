@@ -15,7 +15,7 @@ select * from food where mId=1;
 create sequence merchant_seq;
 create table merchant(mId number primary key,mPersonName varchar2(20), mTel number(20),mIdCard number(20),mCarfPath varchar2(80),
 mLocation varchar2(80),mBrand varchar2(80),mLogoPath varchar2(80),mPassword varchar2(80));
-insert into merchant (mId,mPersonName,mTel,mIdCard,mCarfPath,mLocation,mBrand,mLogoPath,mPassword) 
+insert into merchant (mId,mPersonName,mTel,mIdCard,mCardPath,mLocation,mBrand,mLogoPath,mPassword) 
 values (merchant_seq.nextval,'Sunvin','7626110','4413855647789576','http://usr.im/200x150','ZhuHai','SUN','http://usr.im/200x150','123465');
 select * from merchant;
 

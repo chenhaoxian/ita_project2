@@ -49,7 +49,7 @@ public class MerchantDaoImpl implements MerchantDao {
 				String mPersonName = rs.getString("mPersonName");
 				String mTel = rs.getString("mTel");
 				String mIdCard = rs.getString("mIdCard");
-				String mCarfPath = rs.getString("mCarfPath");
+				String mCarfPath = rs.getString("mCardPath");
 				String mLocation = rs.getString("mLocation");
 				String mBrand = rs.getString("mBrand");
 				String mLogoPath = rs.getString("mLogoPath");
