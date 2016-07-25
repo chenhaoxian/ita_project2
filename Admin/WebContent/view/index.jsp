@@ -42,7 +42,7 @@
 						<td>${each.mBrand}</td>
 						<td>${each.mLogoPath}</td>
 						<td>
-							<a href="<%=request.getContextPath()%>/Action/ToggleBW?tel=${each.mId}" class="btn btn-primary">
+							<a href="<%=request.getContextPath()%>/Action/ToggleBW?tel=${each.mTel}" class="btn btn-primary">
 								<c:if test="${each.mStatus==2}">
 									Block
 								</c:if>

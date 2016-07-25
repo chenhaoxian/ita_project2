@@ -39,7 +39,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void merchantBlockToggle(String mTel) {
 		//toggle the merchant to the blacklist or white-list
-		merchantDao.updateStatus(mTel, 4);
+		if(merchantDao.checkBlock(mTel)){
+			merchantDao.updateStatus(mTel, 2);
+		}else{
+			merchantDao.updateStatus(mTel, 4);
+		}
 	}
 
 	@Override
