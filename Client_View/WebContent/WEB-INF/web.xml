@@ -29,4 +29,14 @@
     <servlet-name>ShowAllMenu</servlet-name>
     <url-pattern>/showMenu</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderFood</display-name>
+    <servlet-name>OrderFood</servlet-name>
+    <servlet-class>clientServlet.OrderFood</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderFood</servlet-name>
+    <url-pattern>/orderFood</url-pattern>
+  </servlet-mapping>
 </web-app>

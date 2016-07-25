@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import dao.FoodDao;
 import dao.impl.FoodDaoImpl;
@@ -40,5 +41,12 @@ public class FoodManagerImpl implements FoodManager {
 	
 		return fd.showAllFood(mid);
 	}
+
+	@Override
+	public Map<Food, Integer> orderFood(int fid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

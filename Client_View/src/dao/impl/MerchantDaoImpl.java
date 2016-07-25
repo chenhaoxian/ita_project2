@@ -35,7 +35,7 @@ public class MerchantDaoImpl implements MerchantDao {
 	public List<Merchant> showAllMerchants() {
 		List<Merchant> merchants = new ArrayList<Merchant>();
 
-		String sql = "select * from merchant";
+		String sql = "select * from merchant left join Permission on PERMISSION.mtel=merchant.mtel where mstatus=2";
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -49,7 +49,7 @@ public class MerchantDaoImpl implements MerchantDao {
 				String mPersonName = rs.getString("mPersonName");
 				String mTel = rs.getString("mTel");
 				String mIdCard = rs.getString("mIdCard");
-				String mCarfPath = rs.getString("mCarfPath");
+				String mCarfPath = rs.getString("mCardPath");
 				String mLocation = rs.getString("mLocation");
 				String mBrand = rs.getString("mBrand");
 				String mLogoPath = rs.getString("mLogoPath");
