@@ -37,7 +37,7 @@ public class AuditServlet extends HttpServlet {
 		testMerchant.setmBrand("Testing's shop");
 		testMerchant.setmTel("138000138000");
 		testMerchant.setmCardPath("http://usr.im/200x30");
-		testMerchant.setBwStatus(1);
+		testMerchant.setMStatus(1);
 		List<Merchant> merchants = new ArrayList<>();
 		merchants.add(testMerchant);
 		

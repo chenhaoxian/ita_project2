@@ -33,10 +33,10 @@
 		<td>${each.mLogoPath}</td>
 		<td>
 			<a href="<%=request.getContextPath()%>/Action/ToggleBW?id=${each.mId}" class="btn btn-primary">
-				<c:if test="${each.bwStatus==1}">
+				<c:if test="${each.mStatus==1}">
 					Block
 				</c:if>
-				<c:if test="${each.bwStatus==0}">
+				<c:if test="${each.mStatus==0}">
 					Recover
 				</c:if>
 			</a>

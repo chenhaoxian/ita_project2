@@ -10,7 +10,7 @@ public class Merchant {
 	private String mLocation;
 	private String mBrand;
 	private String mLogoPath;
-	private Integer bwStatus;
+	private Integer mStatus;
 	
 	public int getmId() {
 		return mId;
@@ -66,10 +66,10 @@ public class Merchant {
 	public void setmLogoPath(String mLogoPath) {
 		this.mLogoPath = mLogoPath;
 	}
-	public int getBwStatus() {
-		return bwStatus;
+	public int getMStatus() {
+		return mStatus;
 	}
-	public void setBwStatus(Integer bwStatus) {
-		this.bwStatus = bwStatus;
+	public void setMStatus(Integer mStatus) {
+		this.mStatus = mStatus;
 	}
 }
