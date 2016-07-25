@@ -30,7 +30,7 @@ public class AuditServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Merchant testMerchant = new Merchant();
 		testMerchant.setmId(11);
-		testMerchant.setmPName("Testing");
+		testMerchant.setmPersonName("Testing");
 		testMerchant.setmIdCard("123456789012345678");
 		testMerchant.setmLocation("where am i");
 		testMerchant.setmLogoPath("http://usr.im/200x30");

@@ -1,8 +1,11 @@
 package com.oocl.ita.starkxiao.project2.admin.dao.po;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Merchant {
 	private int mId;
-	private String mPName;
+	private String mPersonName;
 	private String mTel;
 	private String mPassword;
 	private String mIdCard;
@@ -18,11 +21,11 @@ public class Merchant {
 	public void setmId(int mId) {
 		this.mId = mId;
 	}
-	public String getmPName() {
-		return mPName;
+	public String getmPersonName() {
+		return mPersonName;
 	}
-	public void setmPName(String mPName) {
-		this.mPName = mPName;
+	public void setmPersonName(String mPName) {
+		this.mPersonName = mPName;
 	}
 	public String getmTel() {
 		return mTel;

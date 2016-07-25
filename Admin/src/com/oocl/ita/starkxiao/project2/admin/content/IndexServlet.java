@@ -34,7 +34,7 @@ public class IndexServlet extends HttpServlet {
 //		List<Merchant> merchants = adminService.listAllMerchant();
 		Merchant testMerchant = new Merchant();
 		testMerchant.setmId(1);
-		testMerchant.setmPName("Testing");
+		testMerchant.setmPersonName("Testing");
 		testMerchant.setmIdCard("123456789012345678");
 		testMerchant.setmLocation("where am i");
 		testMerchant.setmLogoPath("http://usr.im/200x30");

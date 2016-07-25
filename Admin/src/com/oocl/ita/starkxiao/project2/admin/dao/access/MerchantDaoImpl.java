@@ -52,15 +52,15 @@ public class MerchantDaoImpl implements MerchantDao {
 		Connection conn = DbUtil.connect();
 		PreparedStatement pst = null;
 		ResultSet resultSet = null;
-		Merchant m = new Merchant();
-		
+		Merchant m = null;
+
 		try {
 			pst = conn.prepareStatement(sql);
 			resultSet = pst.executeQuery();
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				int id = resultSet.getInt("mid");
 				String name = resultSet.getString("mPersonName");
-				String tel = resultSet.getString("merchant.mTel");
+				String tel = resultSet.getString("mTel");
 				String card = resultSet.getString("mIdCard");
 				String card_path = resultSet.getString("mCardPath");
 				String location = resultSet.getString("mLocation");
@@ -68,7 +68,8 @@ public class MerchantDaoImpl implements MerchantDao {
 				String logo_path = resultSet.getString("mLogoPath");
 				int status = resultSet.getInt("mStatus");
 				
-				m.setmPName(name);
+				m = new Merchant();
+				m.setmPersonName(name);
 				m.setmTel(tel);
 				m.setmIdCard(card);
 				m.setmCardPath(card_path);
@@ -77,12 +78,12 @@ public class MerchantDaoImpl implements MerchantDao {
 				m.setmLogoPath(logo_path);
 				m.setmId(id);
 				m.setMStatus(status);
-				
+
 				merchantResult.add(m);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			DbUtil.free(conn, pst, null);
 		}
 		return merchantResult;
@@ -96,8 +97,48 @@ public class MerchantDaoImpl implements MerchantDao {
 
 	@Override
 	public int update(Merchant m) {
-		//nothing here
+		// nothing here
 		return 0;
+	}
+
+	@Override
+	public int initStatus(Merchant m) {
+		String sql1 = "update Merchant set mIdCard=?, mCardPath=?, mLocation=?, mBrand=?, mLogoPath=? where mTel=?";
+		String sql2 = "update Permission set mStatus=? where mTel=?";
+		String root = "http://10.222.232.155:8080/images/upload/";
+		Connection conn = DbUtil.connect();
+		PreparedStatement pst1 = null;
+		PreparedStatement pst2 = null;
+		int effectResult = 0;
+
+		try {
+			conn.setAutoCommit(false);
+			pst1 = conn.prepareStatement(sql1);
+			pst1.setString(1, m.getmIdCard());
+			pst1.setString(2, root + m.getmCardPath());
+			pst1.setString(3, m.getmLocation());
+			pst1.setString(4, m.getmBrand());
+			pst1.setString(5, root + m.getmLogoPath());
+			pst1.setString(6, m.getmTel());
+			effectResult = pst1.executeUpdate();
+
+			pst2 = conn.prepareStatement(sql2);
+			pst2.setInt(1, 1);
+			pst2.setString(2, m.getmTel());
+			effectResult = pst2.executeUpdate();
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pst1 != null)
+					pst1.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			DbUtil.free(conn, pst2, null);
+		}
+		return effectResult;
 	}
 
 }

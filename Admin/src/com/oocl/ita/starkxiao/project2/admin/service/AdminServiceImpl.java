@@ -19,10 +19,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void loadAuditMerchantListJMS() {
+	public void initAuditMerchantFromJMS(Merchant m) {
 		//use a JMSListener to get a message from JMS, then using the xml-parse to transfer to object
 		//save them into a datatable temporally
-
+		merchantDao.updateStatus(m.getmTel(), 1);
 	}
 
 	@Override
