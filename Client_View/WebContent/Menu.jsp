@@ -15,13 +15,13 @@
 			<br><a href="showMerchant">Back to Merchant</a>
 			
 	<p style="text-align:center">
-	<h1 align="center">                      Show All Merchant</h1>
+	<h1 align="center">                      Show All Food</h1>
 <table align="center" border="1">
 <tr>
 			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px; width:50px">Id</td>
 			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px; width:200px">Name</td>
 			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px; width:200px">Price</td>
-			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px; width:200px">Pricture</td></tr>
+			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px; width:200px">Picture</td></tr>
 		<c:forEach var="food" items="${foods}">
 		<tr>
 			<td align="center" valign="middle" style="border: solid 1px #a0c6e5; height: 20px;">${food.fId}</td>
@@ -32,7 +32,7 @@
 			<td align="center" valign="middle" ><img alt="" src="${food.fViewPath}">
 			</td>
 			
-			<td><a href="showMenu">Order</a></td>
+			<td><a href="orderFood?id=${food.fId }">Order</a></td>
 		</tr>
 	</c:forEach>
 		</table>

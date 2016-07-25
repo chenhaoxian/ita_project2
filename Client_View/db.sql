@@ -10,7 +10,9 @@ select * from FOOD;
 
 select * from food where mId=1;
 
+select * from PERMISSION
 
+select * from merchant left join Permission on PERMISSION.mtel=merchant.mtel where mstatus=2;
 
 create sequence merchant_seq;
 create table merchant(mId number primary key,mPersonName varchar2(20), mTel number(20),mIdCard number(20),mCarfPath varchar2(80),

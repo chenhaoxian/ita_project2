@@ -35,7 +35,7 @@ public class MerchantDaoImpl implements MerchantDao {
 	public List<Merchant> showAllMerchants() {
 		List<Merchant> merchants = new ArrayList<Merchant>();
 
-		String sql = "select * from merchant";
+		String sql = "select * from merchant left join Permission on PERMISSION.mtel=merchant.mtel where mstatus=2";
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
