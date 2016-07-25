@@ -141,4 +141,32 @@ public class MerchantDaoImpl implements MerchantDao {
 		return effectResult;
 	}
 
+	@Override
+	public boolean checkBlock(String tel) {
+		String sql = "select * from permission where mtel=?";
+		Connection conn = DbUtil.connect();
+		PreparedStatement pst = null;
+		ResultSet resultSet = null;
+		boolean result = false;
+
+		try {
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, tel);
+			resultSet = pst.executeQuery();
+			
+			if(resultSet.next()){
+				int status = resultSet.getInt("mStatus");
+				if(status == 2)
+					result = false;
+				else if(status == 4)
+					result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.free(conn, pst, null);
+		}
+		return result;
+	}
+
 }

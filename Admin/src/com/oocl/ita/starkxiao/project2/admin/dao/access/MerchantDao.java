@@ -12,4 +12,5 @@ public interface MerchantDao {
 	public int updateStatus(String tel, int status);
 	public List<Merchant> select();
 	public Merchant select(int id);
+	public boolean checkBlock(String tel);
 }
