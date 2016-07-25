@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String mPersonName = request.getParameter("mPersonName");
 		String mTel = request.getParameter("mTel");
 		String mPassword = request.getParameter("mPassword");
@@ -46,11 +47,19 @@ public class RegisterServlet extends HttpServlet {
 			merchant.setmPersonName(mPersonName);
 			HttpSession session = request.getSession();
 			session.setAttribute("merchant", merchant);
-			request.getRequestDispatcher("/auditPage.jsp").forward(request, response);
+			int num = registerService.saveMerchantInPermission(mTel);
+			if(num == 1){
+				request.getRequestDispatcher("view/auditPage.jsp").forward(request, response);
+			}else{
+				PrintWriter out = response.getWriter();
+				out.write("<script>alert('fail!')</script>");// window.location.href=""; 
+				out.write("<script>window.location.href='${pageContext.request.contextPath }/view/register.jsp'</script>");
+			}
+			
 		}else {
 			PrintWriter out = response.getWriter();
 			out.write("<script>alert('fail!')</script>");// window.location.href=""; 
-			out.write("<script>window.location.href='RegisterServlet.jsp'</script>");
+			out.write("<script>window.location.href='${pageContext.request.contextPath }/view/register.jsp'</script>");
 		}
 		
 	}

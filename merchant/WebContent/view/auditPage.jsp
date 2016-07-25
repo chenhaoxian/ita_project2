@@ -4,18 +4,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/bootstrap.min.css" />
 <title>商家注册</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/auditServlet" method="post" enctype="multipart/form-data">
-身份证：<input  name="mIdCard" type="text"/><br>
-<input type="file" name="idCardImage"><br>
-地址：<input name="mLocation" type="text"/><br>
-店名：<input name="mBrand" type="text"/><br>
-LOGO：<br>
-<input type="file" name="logoImage"/><br>
-<input type="submit" value="submit"/> 
+<jsp:include page="header2.jsp"></jsp:include>
+
+<h1 align="center">提交审核信息</h1>
+
+<form class="form-horizontal" action="${pageContext.request.contextPath }/auditServlet" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">身份证：</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="mIdCard" placeholder="身份证：" name="mIdCard">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">上传身份证图片:</label>
+    <div class="col-sm-10">
+      <input type="file" name="idCardImage" name="idCardImage"/><br>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">地址：</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="mLocation" placeholder="地址：" name="mLocation">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">店名：</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="mBrand" placeholder="店名：" name="mBrand">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">LOGO：</label>
+    <div class="col-sm-10">
+      <input type="file" name="logoImage" name="logoImage"/><br>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">提交:</label>
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+  
 </form>
 
+
+<script src="${pageContext.request.contextPath}/res/js/jquery-2.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/js/bootstrap.min.js"></script>
 </body>
 </html>

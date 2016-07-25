@@ -73,4 +73,21 @@ public class LoginDaoImpl implements LoginDao {
 		return name;
 	}
 
+	@Override
+	public int saveMerchantInPermission(String mTel) {
+		Connection con = DbUtil.connect();
+		PreparedStatement pst = null;
+		String sql = "insert into permission(mtel,mstatus) values(?,1)";
+		int count = 0;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, mTel);
+			count = pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+
 }

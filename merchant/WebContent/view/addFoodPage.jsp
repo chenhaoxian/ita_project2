@@ -8,9 +8,10 @@
 <title>添加商品</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <h1>商品添加</h1>
 
-<form class="form-horizontal" action="" method="post">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/addFoodServlet" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="inputPassword" class="col-sm-2 control-label">菜品名称：</label>
     <div class="col-sm-10">

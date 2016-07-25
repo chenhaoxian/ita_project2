@@ -7,10 +7,11 @@
 <title>商家注册</title>
 </head>
 <body>
-
-你好 ，${sessionScope.merchant.mPersonName }
+<jsp:include page="header2.jsp"></jsp:include>
+<h2 align="center">你好 ，${sessionScope.merchant.mPersonName }
 <br>
-你的信息正在审核，请耐心等待。
+你的信息正在审核，请耐心等待。</h2>
+
 
 </body>
 </html>

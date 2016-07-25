@@ -7,5 +7,7 @@ public interface LoginService {
 	boolean login(String mTel, String mPassword);
 	
 	String getPersonName(String mtel);
+	
+	int saveMerchantInPermission(String mTel);
 
 }

@@ -8,5 +8,7 @@ public interface LoginDao {
 	
 	String findPersonName(String mTel);
 	
+	int saveMerchantInPermission(String mTel);
+	
 
 }

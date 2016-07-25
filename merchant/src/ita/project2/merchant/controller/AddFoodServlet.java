@@ -2,8 +2,11 @@ package ita.project2.merchant.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,10 +43,12 @@ public class AddFoodServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		FoodManageService foodManageService = new FoodManageServiceImpl();
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		String pathTemp = this.getServletContext().getRealPath("/temp");
 		String path = this.getServletContext().getRealPath("res/images/upload");
+		String myPath = "D://upload";
 		factory.setSizeThreshold(1024 * 100);
 		factory.setRepository(new File(pathTemp));
 
@@ -52,6 +57,8 @@ public class AddFoodServlet extends HttpServlet {
 		Food food = new Food();
 		int  mId = foodManageService.findMTel(merchant.getmTel());
 		food.setmId(mId);
+		
+	    String fViewPathHeader =this.getServletContext().getInitParameter("foodUploadPath");//config.getInitParameter("foodUploadPath");  
 
 		try {
 			ServletFileUpload fu = new ServletFileUpload(factory);
@@ -67,26 +74,32 @@ public class AddFoodServlet extends HttpServlet {
 				} else {
 					String fileName = item.getName();
 					System.out.println(path + "\\" + fileName);
-					item.write(new File(path, merchant.getmTel() + item.getFieldName() + fileName));
+					item.write(new File(myPath, merchant.getmTel() + food.getfName() + fileName));
 					if ("foodImage".equals(item.getFieldName())) {
-						merchant.setmCardPath((merchant.getmTel() + item.getFieldName() + fileName));
+						food.setfViewPath("http://"+fViewPathHeader+(merchant.getmTel() + food.getfName() + fileName));
 					}
 				}
 			}
-			// System.out.println(merchant.toString());
 		} catch (FileUploadException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+//		System.out.println(food.toString());
+		int saveCount = foodManageService.saveFood(food);
+		if(saveCount == 1){
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('add food success!')</script>");
+//			request.getRequestDispatcher("view/addFoodPage.jsp").forward(request, response);
+			out.println("<script>window.location.href='view/addFoodPage.jsp'</script>')</script>");
+		}else{
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('add food fail!')</script>");
+//			request.getRequestDispatcher("view/addFoodPage.jsp").forward(request, response);
+			out.println("<script>window.location.href='view/addFoodPage.jsp'</script>')</script>");
+		}
 
-		String merchantXML = Parse.ParseMerchantToXML(merchant);
-
-		SendToJMS.sendMerchant(merchantXML);
-
-		request.getRequestDispatcher("view/wait.jsp").forward(request, response);
 	}
 
 }

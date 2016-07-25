@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String mTel = request.getParameter("mTel");
 		String mPassword = request.getParameter("mPassword");
 		LoginService loginService = new LoginServiceImpl();
@@ -52,7 +53,8 @@ public class LoginServlet extends HttpServlet {
 			}else if(status == 2){
 				request.getRequestDispatcher("view/addFoodPage.jsp").forward(request, response);
 			}else if(status == 3){
-				
+				PrintWriter out = response.getWriter();
+				out.write("<script>window.location.href='view/auditPage.jsp'</script>");
 			}else if(status == 4){
 				PrintWriter out = response.getWriter();
 				out.write("<script>alert('Sorry !')</script>");

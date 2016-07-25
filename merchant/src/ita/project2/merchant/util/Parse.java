@@ -46,10 +46,10 @@ public class Parse {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("<Merchant><mPersonName>").append(merchant.getmPersonName()).append("</mPersonName><mTel>")
+		sb.append("<merchant><mPersonName>").append(merchant.getmPersonName()).append("</mPersonName><mTel>")
 			.append(merchant.getmTel()).append("</mTel><mIdCard>").append(merchant.getmIdCard()).append("</mIdCard><mCardPath>").append(merchant.getmCardPath())
 			.append("</mCardPath><mLocation>").append(merchant.getmLocation()).append("</mLocation><mBrand>").append(merchant.getmBrand())
-			.append("</mBrand><mLogoPath>").append(merchant.getmLogoPath()).append("</mLogoPath></Merchant>");
+			.append("</mBrand><mLogoPath>").append(merchant.getmLogoPath()).append("</mLogoPath></merchant>");
 		
 		return sb.toString();
         

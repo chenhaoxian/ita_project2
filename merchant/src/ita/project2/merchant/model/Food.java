@@ -37,6 +37,11 @@ public class Food {
 	public void setfViewPath(String fViewPath) {
 		this.fViewPath = fViewPath;
 	}
+	@Override
+	public String toString() {
+		return "Food [fId=" + fId + ", fName=" + fName + ", mId=" + mId + ", fPrice=" + fPrice + ", fViewPath="
+				+ fViewPath + "]";
+	}
 	
 	
 

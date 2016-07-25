@@ -39,10 +39,11 @@ public class AuditServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		String pathTemp = this.getServletContext().getRealPath("/temp");
 		String path = this.getServletContext().getRealPath("res/images/upload");
-		// String path = "res/images/upload";
+		String myPath = "D://upload";
 
 		factory.setSizeThreshold(1024 * 100);
 		factory.setRepository(new File(pathTemp));
@@ -67,7 +68,7 @@ public class AuditServlet extends HttpServlet {
 				} else {
 					String fileName = item.getName();
 					System.out.println(path + "\\" + fileName);
-					item.write(new File(path, merchant.getmTel() + item.getFieldName() + fileName));
+					item.write(new File(myPath, merchant.getmTel() + item.getFieldName() + fileName));
 					if ("idCardImage".equals(item.getFieldName())) {
 						merchant.setmCardPath((merchant.getmTel() + item.getFieldName() + fileName));
 					} else {
@@ -88,7 +89,7 @@ public class AuditServlet extends HttpServlet {
 
 		SendToJMS.sendMerchant(merchantXML);
 
-		request.getRequestDispatcher("view/wait.jsp").forward(request, response);
+		request.getRequestDispatcher("view/waitPage.jsp").forward(request, response);
 
 	}
 

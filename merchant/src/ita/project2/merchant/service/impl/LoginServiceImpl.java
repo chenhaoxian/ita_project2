@@ -39,4 +39,10 @@ public class LoginServiceImpl implements LoginService {
 		return loginDao.findPersonName(mtel);
 	}
 
+	@Override
+	public int saveMerchantInPermission(String mTel) {
+		// TODO Auto-generated method stub
+		return loginDao.saveMerchantInPermission(mTel);
+	}
+
 }
