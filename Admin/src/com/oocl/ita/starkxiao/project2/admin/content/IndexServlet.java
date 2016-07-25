@@ -32,19 +32,20 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		List<Merchant> merchants = adminService.listAllMerchant();
-		Merchant testMerchant = new Merchant();
-		testMerchant.setmId(1);
-		testMerchant.setmPersonName("Testing");
-		testMerchant.setmIdCard("123456789012345678");
-		testMerchant.setmLocation("where am i");
-		testMerchant.setmLogoPath("http://usr.im/200x30");
-		testMerchant.setmBrand("Testing's shop");
-		testMerchant.setmTel("138000138000");
-		testMerchant.setmCardPath("http://usr.im/200x30");
-		testMerchant.setMStatus(1);
-		List<Merchant> merchants = new ArrayList<>();
-		merchants.add(testMerchant);
+//		Merchant testMerchant = new Merchant();
+//		testMerchant.setmId(1);
+//		testMerchant.setmPersonName("Testing");
+//		testMerchant.setmIdCard("123456789012345678");
+//		testMerchant.setmLocation("where am i");
+//		testMerchant.setmLogoPath("http://usr.im/200x30");
+//		testMerchant.setmBrand("Testing's shop");
+//		testMerchant.setmTel("138000138000");
+//		testMerchant.setmCardPath("http://usr.im/200x30");
+//		testMerchant.setmStatus(1);
+//		List<Merchant> merchants = new ArrayList<>();
+//		merchants.add(testMerchant);
 		
+		List<Merchant> merchants = adminService.listAllMerchant();
 		request.setAttribute("merchants", merchants);
 		request.getRequestDispatcher("/view/index.jsp").forward(request, response);
 	}

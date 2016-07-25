@@ -20,7 +20,7 @@ public class MerchantDaoImplTest {
 		ms = md.select();
 		for(Merchant each : ms){
 			System.out.println(each.getmTel());
-			System.out.println(each.getMStatus());
+			System.out.println(each.getmStatus());
 		}
 	}
 
@@ -29,7 +29,7 @@ public class MerchantDaoImplTest {
 		ms = md.select();
 		for(Merchant each : ms){
 			System.out.println(each.getmTel());
-			System.out.println(each.getMStatus());
+			System.out.println(each.getmStatus());
 		}
 	}
 

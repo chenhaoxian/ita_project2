@@ -59,7 +59,7 @@ public class Parse {
 		test.setmPassword("fsf");
 		test.setmTel("1233213");
 		test.setmPersonName("stark");
-		test.setMStatus(1);
+		test.setmStatus(1);
 		objectToXML(test);
 		String temp = "<merchant><mPersonName>hyman</mPersonName><mTel>10086</mTel><mIdCard>1</mIdCard><mCardPath>10086idCardImage1.png</mCardPath><mLocation>2</mLocation><mBrand>3</mBrand><mLogoPath>10086logoImage2.png</mLogoPath></merchant>";
 		Merchant m = (Merchant)xmlToObject(temp);

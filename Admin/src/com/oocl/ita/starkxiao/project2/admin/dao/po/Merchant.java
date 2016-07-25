@@ -69,10 +69,10 @@ public class Merchant {
 	public void setmLogoPath(String mLogoPath) {
 		this.mLogoPath = mLogoPath;
 	}
-	public int getMStatus() {
+	public int getmStatus() {
 		return mStatus;
 	}
-	public void setMStatus(Integer mStatus) {
+	public void setmStatus(Integer mStatus) {
 		this.mStatus = mStatus;
 	}
 }

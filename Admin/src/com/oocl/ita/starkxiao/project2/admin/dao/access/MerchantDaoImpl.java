@@ -77,7 +77,7 @@ public class MerchantDaoImpl implements MerchantDao {
 				m.setmBrand(brand);
 				m.setmLogoPath(logo_path);
 				m.setmId(id);
-				m.setMStatus(status);
+				m.setmStatus(status);
 
 				merchantResult.add(m);
 			}
