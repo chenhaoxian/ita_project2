@@ -27,8 +27,8 @@ public class ToggleBW extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("id") != null){
-			int target = Integer.parseInt(request.getParameter("id"));
+		String target = request.getParameter("tel");
+		if(target != null){
 			System.out.println("I'm in ToggleSevlet, "+target);
 			adminService.merchantBlockToggle(target);
 		}
