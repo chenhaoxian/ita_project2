@@ -67,7 +67,7 @@ public class JMSRunner {
 						Merchant m;
 						m = Parse.xmlToObject(msg.getText());
 						if(new MerchantDaoImpl().initStatus(m) == 1){
-							//session.commit();
+							session.commit();
 							System.out.println("success");
 						}
 					} catch (JMSException e) {

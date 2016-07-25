@@ -38,7 +38,6 @@ public class Parse {
 		try {
 			JAXBContext context = JAXBContext.newInstance(Merchant.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
-			System.out.println("\n\nThe behind is result: ");
 			merchant = (Merchant) unmarshaller.unmarshal(new StringReader(xmlStr));
 		} catch (JAXBException e) {
 			System.out.println("The exception");
